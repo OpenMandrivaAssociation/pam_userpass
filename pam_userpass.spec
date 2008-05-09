@@ -39,7 +39,7 @@ after it to provide the authentication.
 
 %package -n %{develname}
 Summary:	Libraries and header files for developing pam_userpass-aware applications
-Group:		Development/Libraries
+Group:		Development/Other
 Requires:	%{libname} = %{version}
 Requires:	pam-devel
 Provides:	%{name}-devel = %{version}-%{release}
