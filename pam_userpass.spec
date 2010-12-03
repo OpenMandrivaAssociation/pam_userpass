@@ -1,6 +1,6 @@
 Name:			pam_userpass
 Version:	 	1.0.2
-Release: 		%mkrel 4
+Release: 		%mkrel 5
 
 %define major		1
 %define libname		%mklibname %{name} %{major}
