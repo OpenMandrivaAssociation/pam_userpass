@@ -3,7 +3,7 @@
 
 Name:			pam_userpass
 Version:	 	1.0.2
-Release: 		8
+Release: 		9
 
 %define major		1
 %define libname		%mklibname %{name} %{major}
