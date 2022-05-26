@@ -1,14 +1,14 @@
-%define _enable_debug_packages	%{nil}
-%define debug_package		%{nil}
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
 
-%define major	1
-%define libname	%mklibname %{name} %{major}
-%define devname	%mklibname %{name} -d
+%define major 1
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 
 Summary:	PAM module for USER/PASS-style protocols
 Name:		pam_userpass
 Version: 	1.0.2
-Release:	21
+Release:	22
 License:	relaxed BSD and (L)GPL-compatible
 Group:		System/Libraries
 Url: 		http://www.openwall.com/pam
@@ -45,19 +45,20 @@ This package contains development libraries and header files required
 for building pam_userpass-aware applications.
 
 %prep
-%setup -q
+%autosetup -p1
 chmod 0644 LICENSE README
 
 %build
-CFLAGS="-Wall -fPIC %{optflags}" %make
+%set_build_flags
+CFLAGS="-Wall -fPIC %{optflags}" %make_build
 
 %install
-%makeinstall_std \
-	SECUREDIR=/%{_lib}/security \
+%make_install \
+	SECUREDIR=%{_libdir}/security \
 	LIBDIR=%{_libdir}
 
 %files -n %{libname}
-/%{_lib}/security/pam_userpass.so
+%{_libdir}/security/pam_userpass.so
 %{_libdir}/libpam_userpass.so.%{major}*
 
 %files -n %{devname}
