@@ -8,7 +8,7 @@
 Summary:	PAM module for USER/PASS-style protocols
 Name:		pam_userpass
 Version: 	1.0.2
-Release:	22
+Release:	23
 License:	relaxed BSD and (L)GPL-compatible
 Group:		System/Libraries
 Url: 		http://www.openwall.com/pam
