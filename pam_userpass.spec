@@ -8,7 +8,7 @@
 Summary:	PAM module for USER/PASS-style protocols
 Name:		pam_userpass
 Version: 	1.0.2
-Release:	23
+Release:	24
 License:	relaxed BSD and (L)GPL-compatible
 Group:		System/Libraries
 Url: 		http://www.openwall.com/pam
@@ -50,7 +50,8 @@ chmod 0644 LICENSE README
 
 %build
 %set_build_flags
-CFLAGS="-Wall -fPIC %{optflags}" %make_build
+sed -i -e 's,^CC = gcc,CC = %{__cc},g' Makefile
+CFLAGS="-Wall -fPIC %{optflags}" CC="%{__cc}" %make_build
 
 %install
 %make_install \
