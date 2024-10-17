@@ -11,7 +11,7 @@ Version: 	1.0.2
 Release:	24
 License:	relaxed BSD and (L)GPL-compatible
 Group:		System/Libraries
-Url: 		http://www.openwall.com/pam
+Url: 		https://www.openwall.com/pam
 Source0:	ftp://ftp.openwall.com/pub/projects/pam/modules/%{name}/%{name}-%{version}.tar.gz
 BuildRequires:	pam-devel
 
