@@ -2,13 +2,14 @@
 %define debug_package %{nil}
 
 %define major 1
-%define libname %mklibname %{name} %{major}
+%define oldlibname %mklibname %{name} 1
+%define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
 Summary:	PAM module for USER/PASS-style protocols
 Name:		pam_userpass
 Version: 	1.0.2
-Release:	24
+Release:	25
 License:	relaxed BSD and (L)GPL-compatible
 Group:		System/Libraries
 Url: 		https://www.openwall.com/pam
@@ -26,6 +27,7 @@ after it to provide the authentication.
 Summary:	PAM module for USER/PASS-style protocols
 Group:		System/Libraries
 Provides:	%{name} = %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 pam_userpass is a PAM authentication module for use specifically by
@@ -51,6 +53,7 @@ chmod 0644 LICENSE README
 %build
 %set_build_flags
 sed -i -e 's,^CC = gcc,CC = %{__cc},g' Makefile
+sed -i -e 's@^LDFLAGS = .*@LDFLAGS = %{build_ldflags}@g' Makefile
 CFLAGS="-Wall -fPIC %{optflags}" CC="%{__cc}" %make_build
 
 %install
@@ -67,4 +70,3 @@ CFLAGS="-Wall -fPIC %{optflags}" CC="%{__cc}" %make_build
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_includedir}/security/*
-
