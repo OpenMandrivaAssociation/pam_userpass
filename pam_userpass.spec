@@ -15,6 +15,7 @@ Group:		System/Libraries
 Url: 		https://www.openwall.com/pam
 Source0:	ftp://ftp.openwall.com/pub/projects/pam/modules/%{name}/%{name}-%{version}.tar.gz
 BuildRequires:	pam-devel
+BuildRequires:	make
 
 %description
 pam_userpass is a PAM authentication module for use specifically by
